@@ -1,0 +1,374 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+  
+    
+    <entry>
+      <title>Thinkpad的一些东西</title>
+      <link href="/2018/02/20/ThinkPad%E7%9A%84%E4%B8%80%E4%BA%9B%E4%B8%9C%E8%A5%BF/"/>
+      <url>/2018/02/20/ThinkPad%E7%9A%84%E4%B8%80%E4%BA%9B%E4%B8%9C%E8%A5%BF/</url>
+      
+        <content type="html"><![CDATA[<ul><li>找回丢失的office2016家庭版</li></ul><blockquote><p>小黑预装的office2016家庭版本没被激活，系统又被我搞坏了，心想亏了呀。。。谷哥一番发现thinkpad论坛上有补救的方法，抱着试试的想法，结果成功了，下面是方法。</p><ol><li>重新安装Windows10</li><li>下载并且安装<a href="http://officecdn.microsoft.com/db/492350F6-3A01-4F97-B9C0-C7C6DDF67D60/media/zh-CN/HomeStudentRetail.img" target="_blank" rel="noopener">office2016离线包</a>.</li><li>下载安装<a href="http://download.microsoft.com/download/F/2/2/F22D5FDB-59CD-4275-8C95-1BE17BF70B21/cssemerg97275.diagcab" target="_blank" rel="noopener">微软的修复程序</a>.</li><li>打开office2016重新激活。</li></ol></blockquote><blockquote><p><a href="https://club.lenovo.com.cn/thread-1885117-1-1.html" target="_blank" rel="noopener">原文</a>在此，感谢作者。</p></blockquote>]]></content>
+      
+      
+      <categories>
+          
+          <category> 其他 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 笔记本 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>新手Archlinux安装oracle12g的一些问题</title>
+      <link href="/2017/04/02/%E6%96%B0%E6%89%8BArchlinux%E5%AE%89%E8%A3%85oracle12g%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98/"/>
+      <url>/2017/04/02/%E6%96%B0%E6%89%8BArchlinux%E5%AE%89%E8%A3%85oracle12g%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98/</url>
+      
+        <content type="html"><![CDATA[<p>由于aur上没有现成的oracle包，所以就根据Archlinux的wiki上步骤去安装了。大致是以下几个步骤:</p><blockquote><ol><li>创建安装组oinstall和数据库管理组dba,然后创建oracle用户。</li><li>接下来找一个安装目录，/opt或者其他的，我选了个/var/lib/oracle，设置为了ORACLE_BASE,其子目录product/db最为ORACLE_HOME,这些都是在图形话界面里面选择，注意先设置好目录权限。</li><li>从官网下载下来oracle12g的zip包，解压到oracle的$HOME，然后执行”./runInstaller  -ignoreSysPrereqs“ 。</li><li>安装完成后，需要做一下配置<blockquote><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkdir <span class="variable">$ORACLE_BASE</span>/fast_recovery_area</span><br><span class="line">cp <span class="variable">$ORACLE_BASE</span>/admin/xe/init.ora* <span class="variable">$ORACLE_BASE</span>/product/db/dbs/initxdb.ora </span><br></pre></td></tr></table></figure></blockquote></li></ol></blockquote><p>oracle安装完成后没有启动脚本，而且要手动挂载.</p><blockquote><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">lsnrctl start</span><br><span class="line">sqlplus <span class="string">'/as sysdba'</span></span><br><span class="line">startup </span><br></pre></td></tr></table></figure><p>出现监听问题，修改product/db/network/admin/listener.ora的HOST的值把它替换成ip。<br>用其他客户端登录,出现帐号密码错误添加一行SQLNET.ALLOWED_LOGON_VERSION=8到$ORACLE_HOME/network/admin/sqlnet.ora，然后用实例登录，据说是用sid登录会解析错误导致的。</p></blockquote><p>参考资料:<br><a href="https://wiki.archlinux.org/index.php/Oracle" target="_blank" rel="noopener">Archlinux wiki ORACLE</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 笔记 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> linux </tag>
+            
+            <tag> oracle </tag>
+            
+            <tag> 安装 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Awesome的快捷键</title>
+      <link href="/2017/02/22/Awesome%E7%9A%84%E5%BF%AB%E6%8D%B7%E9%94%AE/"/>
+      <url>/2017/02/22/Awesome%E7%9A%84%E5%BF%AB%E6%8D%B7%E9%94%AE/</url>
+      
+        <content type="html"><![CDATA[<p>mod4+ctrl+space 切换悬浮状态,”小飞机“图标<br>mod4+t  置顶窗口,“^”图标</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 技巧 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> awesome </tag>
+            
+            <tag> 快捷键 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>给树莓派用上无线的nfsroot</title>
+      <link href="/2017/01/13/%E7%BB%99%E6%A0%91%E8%8E%93%E6%B4%BE%E7%94%A8%E4%B8%8A%E6%97%A0%E7%BA%BF%E7%9A%84nfsroot/"/>
+      <url>/2017/01/13/%E7%BB%99%E6%A0%91%E8%8E%93%E6%B4%BE%E7%94%A8%E4%B8%8A%E6%97%A0%E7%BA%BF%E7%9A%84nfsroot/</url>
+      
+        <content type="html"><![CDATA[<p>本打算用iscsi作为树莓派的根分区设备的，但是在实践中发现它并不能在断电情况下有效的保护好数据，每次开机都需要fsck修复，毕竟是块设备只是通过网络传输嘛，这和我所期待的效果差很多。于是我决定尝试一下nfs并且用上无线网卡。</p><h1 id="前期准备"><a href="#前期准备" class="headerlink" title="前期准备"></a>前期准备</h1><blockquote><ol><li>一台能正常使用的使用nfs。ip地址：192.168.1.254。</li><li>一张无线网卡，我用的是10块钱的小度wifi。ip地址：192.168.1.2。</li><li>无线路由器。ip地址：192.168.1.1。</li><li>1张容量<em>大于2G</em>的sd卡。</li><li>一张sd卡读卡器。</li><li>一台已经装好系统的树莓派。</li></ol></blockquote><h1 id="树莓派上的配置"><a href="#树莓派上的配置" class="headerlink" title="树莓派上的配置"></a>树莓派上的配置</h1><h2 id="安装必要的软件"><a href="#安装必要的软件" class="headerlink" title="安装必要的软件"></a>安装必要的软件</h2><p>需要mkinitcpio和nfs包。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacman -S mkinitcpio mkinitcpio-nfs-utils wpa_supplicant nfs-utils</span><br></pre></td></tr></table></figure><h2 id="配置initramfs"><a href="#配置initramfs" class="headerlink" title="配置initramfs"></a>配置initramfs</h2><ol><li>这里添加2个hooks，相比pxe的无盘系统，无线的多一步，就是要无线认证，因此必须在挂载nfs前添加一个wireless的hooks。</li></ol><blockquote><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># /etc/initcpio/hooks/wireless,把下面的$ssid和$ssidpwd替换成wifi的帐号密码，如果不替换也可以在内核参数上添加。</span></span><br><span class="line">run_hook ()</span><br><span class="line">&#123;</span><br><span class="line">   <span class="keyword">for</span> mod <span class="keyword">in</span>  nfsv3 nfsv4 arc4  ccm ctr  mt7601u  rndis_host rndis_wlan lib80211 lib80211_crypt_ccmp lib80211_crypt_tkip lib80211_crypt_wep ; <span class="keyword">do</span></span><br><span class="line">       modprobe <span class="string">"<span class="variable">$mod</span>"</span></span><br><span class="line">   <span class="keyword">done</span></span><br><span class="line">   sleep 2</span><br><span class="line">   wpa_passphrase <span class="string">"<span class="variable">$ssid</span>"</span> <span class="string">"<span class="variable">$ssidpwd</span>"</span> &gt; wifi.conf</span><br><span class="line">   wpa_supplicant -B -i wlan0 -c wifi.conf  &gt;/dev/null 2&gt;&amp;1</span><br><span class="line">   sleep 10</span><br><span class="line">   mkdir -p /var/lib/dhcpcd</span><br><span class="line">   dhcpcd wlan0</span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># /etc/initcpio/install/wireless，在for循环中添加需要的无线模块，小度wifi的模块是mt7601u，*别忘记在上面的hooks*也填上。</span></span><br><span class="line">build ()</span><br><span class="line">&#123;</span><br><span class="line">   <span class="built_in">local</span> mod</span><br><span class="line">   <span class="keyword">for</span> mod <span class="keyword">in</span> nfsv3 nfsv4 arc4 mt7601u  rndis_host rndis_wlan lib80211_crypt_tkip lib80211_crypt_ccmp lib80211_crypt_wep lib80211  ccm ctr; <span class="keyword">do</span></span><br><span class="line">       add_module <span class="string">"<span class="variable">$mod</span>"</span></span><br><span class="line">   <span class="keyword">done</span></span><br><span class="line">   add_checked_modules <span class="string">"/drivers/net"</span></span><br><span class="line">   add_binary <span class="string">"/usr/bin/ifconfig"</span></span><br><span class="line">   add_binary <span class="string">"/usr/bin/wpa_supplicant"</span></span><br><span class="line">   add_binary <span class="string">"/usr/bin/wpa_passphrase"</span></span><br><span class="line">   add_binary <span class="string">"/usr/bin/wpa_cli"</span></span><br><span class="line">   add_binary <span class="string">"/usr/bin/eapol_test"</span></span><br><span class="line">   add_binary <span class="string">"/usr/bin/ping"</span></span><br><span class="line">   add_binary <span class="string">"/usr/bin/dhcpcd"</span></span><br><span class="line">   add_runscript</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">help</span> ()</span><br><span class="line">&#123;</span><br><span class="line">cat &lt;&lt;HELPEOF</span><br><span class="line"> This hook allows you to use wireless network</span><br><span class="line">HELPEOF</span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure></blockquote><ol start="2"><li>修改/etc/mkinitcpio.conf的HOOKS=行，添加wireless和net的hooks。</li></ol><blockquote> <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">HOOKS=<span class="string">"base udev autodetect modconf wireless net block filesystems keyboard"</span> </span><br></pre></td></tr></table></figure><ol start="3"><li>更新initramfs。</li></ol></blockquote><blockquote><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkinitcpio -g /boot/initrd </span><br></pre></td></tr></table></figure></blockquote><h2 id="配置-boot-config-txt和-boot-cmdline-txt"><a href="#配置-boot-config-txt和-boot-cmdline-txt" class="headerlink" title="配置/boot/config.txt和/boot/cmdline.txt"></a>配置/boot/config.txt和/boot/cmdline.txt</h2><p>/boot/config.txt添加如下一行:</p><blockquote><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">initramfs initrd 0x01f00000 </span><br></pre></td></tr></table></figure><p>/boot/cmdline.txt改写成这样:</p></blockquote><blockquote><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rw rootwait console=ttyAMA0,115200 console=tty1 selinux=0 plymouth.enable=0 smsc95xx.turbo_mode=N dwc_otg.lpm_enable=0 kgdboc=ttyAMA0,115200 elevator=noop initrd=0x01f00000 ip=192.168.1.2:192.168.1.254:192.168.1.1:255.255.255.0:raspberry:wlan0:none  nfsroot=192.168.1.254:/srv/raspberry,rsize=16384,wsize=16384,timeo=14 </span><br></pre></td></tr></table></figure><p>ip后面的参数ip=<client-ip>:<server-ip>:<gw-ip>:<netmask>:<hostname>:<device>:<autoconf>。</p></blockquote><p>关闭树莓派，取下sd卡，准备把根分区拷贝到电脑上。</p><h1 id="nfs服务器上的配置"><a href="#nfs服务器上的配置" class="headerlink" title="nfs服务器上的配置"></a>nfs服务器上的配置</h1><h2 id="拷贝根分区"><a href="#拷贝根分区" class="headerlink" title="拷贝根分区"></a>拷贝根分区</h2><p>挂载sd卡，把整个根分区拷贝到/srv/raspberry下面。</p><blockquote><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mkdir /srv/raspberry</span><br><span class="line">mount /dev/sdb2 /mnt</span><br><span class="line">cp -rpf /mnt/* /srv/raspberry</span><br><span class="line">sync </span><br></pre></td></tr></table></figure></blockquote><h2 id="配置nfs"><a href="#配置nfs" class="headerlink" title="配置nfs"></a>配置nfs</h2><p>执行下面命令。</p><blockquote><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">pacman -S nfs-utlis</span><br><span class="line">systemctl start nfs-server</span><br><span class="line">systemctl <span class="built_in">enable</span> nfs-server</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"/srv/raspberry 192.168.1.0/24(rw,subtree_check,async,nohide,no_root_squash)"</span> &gt;&gt; /etc/exports</span><br><span class="line">exports -avr </span><br></pre></td></tr></table></figure></blockquote><h1 id="过程中获取的经验"><a href="#过程中获取的经验" class="headerlink" title="过程中获取的经验"></a>过程中获取的经验</h1><blockquote><ol><li>尽量减少磁盘读写，推荐把systemd的日志放到tmpfs上面。</li><li>sd卡只需要让树莓派加载内核和initramfs就足够了，因此可以替换一张更小的内存卡。</li><li>配合kodi连接电视剧除了启动速度慢点（大概2分钟）以外，看视频什么很流畅没有卡顿。</li><li>遗憾的是无法像正常系统那样关闭，因为在发出关闭请求后，网络就已经断开了，所以推荐加入一个cron，每隔一段时间sync一下，避免丢失数据。不过对于只用kodi看片来说，貌似没必要，随时切断电源问题不大。</li></ol></blockquote><p>参考资料:<br><a href="https://wiki.archlinux.org/index.php/Diskless_network_boot_NFS_root" target="_blank" rel="noopener">Diskless system</a><br><a href="http://elinux.org/RPi_config.txt" target="_blank" rel="noopener">RPiconfig</a><br><a href="https://raspberrypi.stackexchange.com/questions/7159/can-the-raspberry-boot-to-an-lvm-root-partition" target="_blank" rel="noopener">Can the raspberry boot to an LVM root partition?</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 笔记 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> nfs </tag>
+            
+            <tag> 树莓派 </tag>
+            
+            <tag> archlinux </tag>
+            
+            <tag> 无线 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Debian无盘启动</title>
+      <link href="/2017/01/07/Debian%E6%97%A0%E7%9B%98%E5%90%AF%E5%8A%A8/"/>
+      <url>/2017/01/07/Debian%E6%97%A0%E7%9B%98%E5%90%AF%E5%8A%A8/</url>
+      
+        <content type="html"><![CDATA[<p>  家里还有块amd板子，其他都好唯独缺少硬盘，还好网卡是好的，所以就打算学网吧的无盘主机一样。为了避免不必要的麻烦在虚拟机上折腾吧。<br>    查阅了一下资料和折腾后终于搞定了，下面是过程。</p><h1 id="前期准备"><a href="#前期准备" class="headerlink" title="前期准备"></a>前期准备</h1><blockquote><ol><li>准好一台能正常启动virtualbox的机器，简单设置下网络，这里选用host-only模式添加一张vboxnet0网卡，网关192.168.56.1，<em>禁用dhcp服务</em>。</li><li>创建虚拟机(server)，设置网卡模式为host-only然后就能安装Debian，安装过程中把ip设置成192.168.56.30，hostname设置为server.acfelis.win。</li><li>创建虚拟机(client)，并且记录下它的mac地址，改成host-only模式。</li></ol></blockquote><h1 id="配置服务端"><a href="#配置服务端" class="headerlink" title="配置服务端"></a>配置服务端</h1><blockquote><p>这个无盘启动其实只要配置服务端就行了，客户端创建一个虚拟机设置网卡启动就ok了。</p></blockquote><h2 id="1-配置iscsitarget"><a href="#1-配置iscsitarget" class="headerlink" title="1. 配置iscsitarget"></a>1. 配置iscsitarget</h2><blockquote><p>安装软件,强大的apt会自动帮你把iscsitarget的其他依赖安装上去，所以一条命令就好。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get install iscsitarget -y </span><br></pre></td></tr></table></figure></blockquote><blockquote><p>创建一个5G的空白文件作为客户端的根文件系统。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dd <span class="keyword">if</span>=/dev/zero of=/4G bs=1M count=4096 </span><br></pre></td></tr></table></figure></blockquote><blockquote><p>配置/etc/iet/ietd.conf,添加如下内容。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Target iqn.2017-01.server.acfelis.win:rootfs</span><br><span class="line">       IncomingUser test test</span><br><span class="line">       Lun 0 Path=/4G,Type=fileio </span><br></pre></td></tr></table></figure></blockquote><blockquote><p>开启iscsitarget并且重启服务。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sed -i <span class="string">'1s/false/true/'</span> /etc/default/iscsitarget </span><br><span class="line">systemctl restart iscsitarget.service </span><br></pre></td></tr></table></figure></blockquote><blockquote><p>检验配置是否正常。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ietadm --op show --tid=1 </span><br></pre></td></tr></table></figure></blockquote><blockquote><p>提示如下,就代表成功了。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Wthreads=8</span><br><span class="line">Type=0</span><br><span class="line">QueuedCommands=32</span><br><span class="line">NOPInterval=0</span><br><span class="line">NOPTimeout=0 </span><br></pre></td></tr></table></figure></blockquote><h2 id="2-为客户端制作根文件系统"><a href="#2-为客户端制作根文件系统" class="headerlink" title="2. 为客户端制作根文件系统"></a>2. 为客户端制作根文件系统</h2><blockquote><p>格式化/4G,并且挂在到/mnt。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkfs.ext4 /4G</span><br><span class="line">mount -o loop /4G /mnt/ </span><br></pre></td></tr></table></figure></blockquote><blockquote><p>安装debootstrap，并且安装系统到/mnt。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">apt-get install debootstrap -y</span><br><span class="line">debootstrap jessie /mnt https://mirrors.ustc.edu.cn/debian </span><br></pre></td></tr></table></figure></blockquote><blockquote><p>安装完毕后先修改下客户端的配置，比如hostname，网络192.168.56.31</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /mnt</span><br><span class="line">cat /etc/network/interfaces &gt; etc/network/interfaces</span><br><span class="line">sed -i <span class="string">'s/192.168.56.30/192.168.56.31/'</span> etc/network/interfaces</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"client"</span> &gt; etc/hostname </span><br></pre></td></tr></table></figure></blockquote><blockquote><p>好了，接下来就chroot来配置这个系统了。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /mnt</span><br><span class="line">mount -t sysfs none sys;mount -t proc none proc;mount -t devtmpfs none</span><br><span class="line">dev;mount -t devpts none dev/pts </span><br><span class="line">chroot /mnt </span><br></pre></td></tr></table></figure></blockquote><blockquote><p>安装open-iscsi，initramfs-tools，然后配置InitiatorName，添加为initramfs添加模块，更新initramfs</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">apt-get install open-iscsi initramfs-tools</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"InitiatorName=iqn.2017-01.client.acfelis.win:client"</span> &gt; /etc/iscsi/initiatorname.iscsi </span><br><span class="line">touch /etc/iscsi/iscsi.initramfs</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"iscsi"</span> &gt;&gt; /etc/initramfs-tools/modules</span><br><span class="line"><span class="comment">#由于没有安装内核，所以在安装的时候会自动创建initramfs</span></span><br><span class="line">apt-get install linux-image-amd64 -y</span><br><span class="line"><span class="comment">#创建fstab</span></span><br><span class="line">uuid=$(blkid|grep loop0|awk <span class="string">'&#123;print $2&#125;'</span>)</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"<span class="variable">$uuid</span> / ext4 defaults 0 1"</span> &gt;&gt; /etc/fstab</span><br><span class="line"><span class="comment">#退出chroot环境</span></span><br><span class="line"><span class="built_in">exit</span></span><br><span class="line">umount &#123;proc,sys,dev/pts&#125;;umount dev </span><br></pre></td></tr></table></figure></blockquote><h2 id="3-搭建PXE启动环境"><a href="#3-搭建PXE启动环境" class="headerlink" title="3. 搭建PXE启动环境"></a>3. 搭建PXE启动环境</h2><blockquote><p>下载<a href="http://ftp.nl.debian.org/debian/dists/jessie/main/installer-amd64/current/images/netboot/netboot.tar.gz" target="_blank" rel="noopener">debian的netboot</a>。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">wget http://ftp.nl.debian.org/debian/dists/jessie/main/installer-amd64/current/images/netboot/netboot.tar.gz </span><br><span class="line">mkdir /srv/pxe</span><br><span class="line">tar xvf netboot.tar.gz -C /srv/pxe</span><br><span class="line"><span class="comment">#pxelinux.cfg目录存放引导配置文件</span></span><br><span class="line">mkdir pxelinux.cfg</span><br><span class="line">mkdir iscsi</span><br><span class="line">cp /mnt/boot/vmlinuz-3.16.0-4-amd64 iscsi/vmlinuz</span><br><span class="line">cp /mnt/boot/initrd.img-3.16.0-4-amd64 iscsi/initrd.img </span><br></pre></td></tr></table></figure></blockquote><blockquote><p>创建客户端引导文件pxelinux.cfg/default。<em>UUID切记不要有引号</em>。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">TIMEOUT 3</span><br><span class="line">DEFAULT debian-iscsi</span><br><span class="line">LABEL debian-iscsi</span><br><span class="line">KERNEL iscsi/vmlinuz</span><br><span class="line">APPEND initrd=iscsi/initrd.img ip=dhcp ISCSI_INITIATOR=iqn.2017-01.client.acfelis.win:client ISCSI_TARGET_NAME=iqn.2017-01.server.acfelis.win:rootfs ISCSI_TARGET_IP=192.168.56.30 ISCSI_TARGET_PORT=3260 root=UUID=28e17283-7b74-43ef-967f-62010765461c rw  ISCSI_USERNAME=test ISCSI_PASSWORD=test </span><br></pre></td></tr></table></figure></blockquote><blockquote><p>我使用的是dnsmasq来做tftp服务器。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get install dnsmasq -y </span><br></pre></td></tr></table></figure><blockquote><p>/etc/dnsmasq.conf配置如下。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">listen-address=127.0.0.1,192.168.56.30</span><br><span class="line">no-resolv</span><br><span class="line">server=192.168.56.1</span><br><span class="line"><span class="comment">#绑定客户端的mac地址</span></span><br><span class="line">dhcp-host=08:00:27:8C:58:C9,192.168.56.31</span><br><span class="line">interface=eth0</span><br><span class="line"><span class="built_in">bind</span>-interfaces</span><br><span class="line">dhcp-boot=pxelinux.0</span><br><span class="line">dhcp-option-force=209,pxelinux.cfg/default</span><br><span class="line">dhcp-option-force=66,192.168.56.30</span><br><span class="line"><span class="built_in">enable</span>-tftp</span><br><span class="line">tftp-root=/srv/pxe/ </span><br></pre></td></tr></table></figure></blockquote></blockquote><blockquote><p>重启dnsmasq服务。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart dnsmasq.service </span><br></pre></td></tr></table></figure></blockquote><blockquote><p>最后卸载/4G,就完成了！</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">umount /4G </span><br></pre></td></tr></table></figure></blockquote><h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><blockquote><p>因为挂载iscsi块设备是在initramfs里面执行的，所以client里面(/etc/iscsi/iscsid.conf)并不需要配置，只要配置好PXE里面的内核启动参数就行了。</p></blockquote><p>参考资料:<br><a href="https://wiki.debian.org/SAN/iSCSI/iscsitarget" target="_blank" rel="noopener">Debian Wiki iscsitarget</a><br><a href="https://wiki.debian.org/SAN/iSCSI/open-iscsi" target="_blank" rel="noopener">Debian wiki open-iscsi</a><br><a href="https://wiki.archlinux.org/index.php/PXE" target="_blank" rel="noopener">Archlinux wiki PXE</a><br><a href="http://it-joe.com/linux/iscsi_pxe_boot" target="_blank" rel="noopener">SAN Boot Linux ( iSCSI )</a><br><a href="http://backreference.org/2013/12/23/diskless-iscsi-boot-with-pxe-howto/" target="_blank" rel="noopener">Diskless iSCSI boot with PXE HOWTO</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 笔记 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> debian </tag>
+            
+            <tag> pxe </tag>
+            
+            <tag> linux </tag>
+            
+            <tag> dnsmasq </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Debian的一些技巧</title>
+      <link href="/2017/01/06/Debian%E7%9A%84%E4%B8%80%E4%BA%9B%E6%8A%80%E5%B7%A7/"/>
+      <url>/2017/01/06/Debian%E7%9A%84%E4%B8%80%E4%BA%9B%E6%8A%80%E5%B7%A7/</url>
+      
+        <content type="html"><![CDATA[<ol><li>手动选定窗口管理器</li></ol><blockquote><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">update-alternatives --config <span class="string">"x-window-manager"</span> </span><br></pre></td></tr></table></figure><ol start="2"><li>编译内核</li></ol></blockquote><blockquote><p>需要包kernel-package。一定要加入initrd，否则安装内核时，不调用update-initramfs。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fakeroot make-kpkg --initrd --revision=1.0.custom kernel_image </span><br></pre></td></tr></table></figure></blockquote>]]></content>
+      
+      
+      <categories>
+          
+          <category> 技巧 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> debian </tag>
+            
+            <tag> linux </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Firefox在U2B上用html5没有1080p选项</title>
+      <link href="/2017/01/06/Firefox%E5%9C%A8U2B%E4%B8%8A%E7%94%A8html5%E6%B2%A1%E6%9C%891080p%E9%80%89%E9%A1%B9/"/>
+      <url>/2017/01/06/Firefox%E5%9C%A8U2B%E4%B8%8A%E7%94%A8html5%E6%B2%A1%E6%9C%891080p%E9%80%89%E9%A1%B9/</url>
+      
+        <content type="html"><![CDATA[<p>使用html5后只有2个选项,其实是因为firefox默认没打开一些视频播放选项.</p><blockquote><ol><li>清除u2b的cookies</li></ol></blockquote><blockquote><ol start="2"><li>在about:config打开功能<blockquote> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">media.mediasource.enabled    true</span><br><span class="line">media.mediasource.webm.enabled    true</span><br><span class="line">media.mediasource.mp4.enabled    true</span><br><span class="line">media.fragmented-mp4.exposed    true</span><br><span class="line">media.fragmented-mp4.ffmpeg.enabled    true</span><br><span class="line">media.fragmented-mp4.gmp.enabled    true </span><br></pre></td></tr></table></figure></blockquote></li></ol></blockquote>]]></content>
+      
+      
+      <categories>
+          
+          <category> 其他 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> firefox </tag>
+            
+            <tag> youtube </tag>
+            
+            <tag> html5 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Android模拟运营商代码</title>
+      <link href="/2017/01/06/Android%E6%A8%A1%E6%8B%9F%E8%BF%90%E8%90%A5%E5%95%86%E4%BB%A3%E7%A0%81/"/>
+      <url>/2017/01/06/Android%E6%A8%A1%E6%8B%9F%E8%BF%90%E8%90%A5%E5%95%86%E4%BB%A3%E7%A0%81/</url>
+      
+        <content type="html"><![CDATA[<p>谷歌市场和Now必备</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">setprop gsm.sim.operator.alpha <span class="string">"Verizon"</span></span><br><span class="line">setprop gsm.sim.operator.iso-country <span class="string">"us"</span></span><br><span class="line">setprop gsm.sim.operator.numeric    <span class="string">"310004"</span></span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> 其他 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> android </tag>
+            
+            <tag> 谷歌市场 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>VPS上锐速的配置</title>
+      <link href="/2017/01/06/VPS%E4%B8%8A%E9%94%90%E9%80%9F%E7%9A%84%E9%85%8D%E7%BD%AE/"/>
+      <url>/2017/01/06/VPS%E4%B8%8A%E9%94%90%E9%80%9F%E7%9A%84%E9%85%8D%E7%BD%AE/</url>
+      
+        <content type="html"><![CDATA[<h1 id="折腾了一天终于把小鸡网络搞好了-发现了一下几个注意点"><a href="#折腾了一天终于把小鸡网络搞好了-发现了一下几个注意点" class="headerlink" title="折腾了一天终于把小鸡网络搞好了,发现了一下几个注意点:"></a>折腾了一天终于把小鸡网络搞好了,发现了一下几个注意点:</h1><h2 id="1-使用virtio"><a href="#1-使用virtio" class="headerlink" title="1. 使用virtio"></a>1. 使用virtio</h2><blockquote><p>一来这网卡算是虚拟机的亲儿子效率比其他2张高很多,二来这网卡也支持GSO,功能齐全.<strong>修改完设置后,必须面板里面重启,reboot是无效的</strong></p></blockquote><h2 id="2-选择合适的拥塞控制模块"><a href="#2-选择合适的拥塞控制模块" class="headerlink" title="2. 选择合适的拥塞控制模块"></a>2. 选择合适的拥塞控制模块</h2><blockquote><p>低延迟低丢包建议默认的cubic,高延迟高丢包使用hybla,否则会出现反效果.一般美国主机就选hybla,延迟比较低的100ms左右的就默认.</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">/sbin/modprobe tcp_hybla</span><br><span class="line">sysctl -w net.ipv4.tcp_congestion_control=hybla </span><br></pre></td></tr></table></figure></blockquote><h2 id="3-修改锐速参数"><a href="#3-修改锐速参数" class="headerlink" title="3. 修改锐速参数"></a>3. 修改锐速参数</h2><blockquote><p>以下是几个重要的加速参数,csvmode这个可以看情况而定，丢包延迟大的情况下建议开启.</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">acc=&quot;1&quot;</span><br><span class="line">advacc=&quot;1&quot;</span><br><span class="line">advinacc=&quot;1&quot;</span><br><span class="line">maxmode=&quot;1&quot;</span><br><span class="line">rsc=&quot;1&quot;</span><br><span class="line">gso=&quot;1&quot;</span><br><span class="line">csvmode=&quot;1&quot; </span><br></pre></td></tr></table></figure></blockquote><h2 id="4-需要等待"><a href="#4-需要等待" class="headerlink" title="4. 需要等待"></a>4. 需要等待</h2><blockquote><p>重启锐速后不一定马上就生效,等待3~5钟后才见效果.</p></blockquote>]]></content>
+      
+      
+      <categories>
+          
+          <category> 技巧 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 锐速 </tag>
+            
+            <tag> vps </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>SSH转发</title>
+      <link href="/2017/01/06/SSH%E8%BD%AC%E5%8F%91/"/>
+      <url>/2017/01/06/SSH%E8%BD%AC%E5%8F%91/</url>
+      
+        <content type="html"><![CDATA[<p>SSH有本地转发和远程转发，它们分别适用不同的环境。所有的转发请求都是由ssh客户端发起的。</p><h2 id="远程转发"><a href="#远程转发" class="headerlink" title="远程转发"></a>远程转发</h2><blockquote><p>为了能让树莓派的起点作用，就做了个web服务器，但是电信封杀了80端口，这个时候远程转发就起到作用了，一条命令搞定。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -C -fN -R *:80:localhost:80 <span class="variable">$RSERVER</span> </span><br></pre></td></tr></table></figure><p>man文档里面”-R [bind_address:] port:host:hostport”，前面是要绑定的跳板地址和端口，后面是要被跳转的服务器和其端口。这样就是把树莓派的80端口通过ssh转发到了跳板服务器的80端口上。</p></blockquote><h2 id="本地转发"><a href="#本地转发" class="headerlink" title="本地转发"></a>本地转发</h2><blockquote><p>暂时还没什么需要，所以不写了。不过原理大致是把远程服务器上的端口绑定到本机的端口。这样访问本机的某个端口就可以访问服务器上相关的服务了。比如在服务器上开了个只有本地127.0.0.2:80的apache服务，外界直接是无法访问的！因为本机和服务器可以通过ssh通信，所以可以这样.</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh -C -fN -L 81:127.0.0.2:80 <span class="variable">$RSERVER</span> </span><br></pre></td></tr></table></figure></blockquote>]]></content>
+      
+      
+      <categories>
+          
+          <category> 笔记 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> linux </tag>
+            
+            <tag> ssh </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>rsync同步规则</title>
+      <link href="/2017/01/06/rsync%E5%90%8C%E6%AD%A5%E8%A7%84%E5%88%99/"/>
+      <url>/2017/01/06/rsync%E5%90%8C%E6%AD%A5%E8%A7%84%E5%88%99/</url>
+      
+        <content type="html"><![CDATA[<p>今天用rsync同步主目录数据,发现一些规则,记下来以免忘记.</p><blockquote><ol><li>rsync同步的时候source和source/有区别,前者会把source整个目录发送过去,而source/是仅发送目录下的文档.</li><li>使用–exclude选项时候,必须是相对路径即source/subdir,subdir后面加/或者不加是一样效果,但是必须加上’’.如果多个目录,可以使用{},为了防止shell扩展可以在每个目录上加上’’,但是不要在{}上!</li></ol></blockquote>]]></content>
+      
+      
+      <categories>
+          
+          <category> 技巧 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> linux </tag>
+            
+            <tag> 备份 </tag>
+            
+            <tag> rsync </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>用带ssl的ftp给vps做备份</title>
+      <link href="/2017/01/05/%E7%94%A8%E5%B8%A6ssl%E7%9A%84ftp%E7%BB%99vps%E5%81%9A%E5%A4%87%E4%BB%BD/"/>
+      <url>/2017/01/05/%E7%94%A8%E5%B8%A6ssl%E7%9A%84ftp%E7%BB%99vps%E5%81%9A%E5%A4%87%E4%BB%BD/</url>
+      
+        <content type="html"><![CDATA[<p>由于Alpharacks小鸡没有免费备份工具而且没有什么安全保障，所以决定备份一下，当然备份服务器就是树莓派啦。</p><p>起初想到的是用spc,在树莓派上创建一个备份用户backup，然后在小鸡上创建公钥再扔到backup主目录，当一切配置好了，才发现用scp需要用户登录才行，然而backup用户为了安全起见是禁止登录的，so，这方案不可行了。然后想到了ftp，于是开始查资料，折腾了～</p><h2 id="树莓派服务端配置"><a href="#树莓派服务端配置" class="headerlink" title="树莓派服务端配置"></a>树莓派服务端配置</h2><h3 id="安装，修改配置文件"><a href="#安装，修改配置文件" class="headerlink" title="安装，修改配置文件"></a>安装，修改配置文件</h3><blockquote><ol><li>Archlinux上直接pacman安装包<blockquote><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pacman -S vsftpd </span><br></pre></td></tr></table></figure></blockquote></li></ol></blockquote><blockquote><ol start="2"><li>简单配置一下/etc/vsftpd.conf,禁止匿名用户,chroot限制用户访问目录,增加用户访问列表.<blockquote><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">anonymous_enable=NO                 </span><br><span class="line">local_enable=YES                    </span><br><span class="line">write_enable=YES                    </span><br><span class="line">local_umask=022</span><br><span class="line">dirmessage_enable=YES</span><br><span class="line">xferlog_enable=YES</span><br><span class="line">connect_from_port_20=YES            </span><br><span class="line">xferlog_file=/var/<span class="built_in">log</span>/vsftpd.log</span><br><span class="line">chroot_local_user=YES</span><br><span class="line">userlist_enable=YES</span><br><span class="line">userlist_deny=NO</span><br><span class="line">userlist_file=/etc/vsftpd.user_list</span><br><span class="line">listen=YES </span><br></pre></td></tr></table></figure></blockquote></li></ol></blockquote><h3 id="创建用户vsftp"><a href="#创建用户vsftp" class="headerlink" title="创建用户vsftp"></a>创建用户vsftp</h3><blockquote><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">useradd -g ftp -m -d /srv/vsftp vsftp</span><br><span class="line">passwd vsftp #创建密码</span><br><span class="line">mkdir -p /srv/vsftp/backup</span><br><span class="line">chown vsftp:ftp /srv/vsftp/backup</span><br><span class="line">chmod 500 /srv/vsftp</span><br><span class="line">echo &quot;vsftp&quot; &gt;&gt; /etc/vsftp.user_list</span><br><span class="line">systemctl start vsftpd #启动vsftpd </span><br></pre></td></tr></table></figure><p>由于开启chroot限制后系统为了更安全所以必须<strong>取消用户目录的写权限</strong>,否则连接后会报错.所以在用户目录创建一个可写入的backup目录.最后在/etc/vsftp.user_list里面写入vsftp让vsftp这用户允许登录.</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ftp localhost </span><br></pre></td></tr></table></figure><p>测试一下,如果没问题就可以配置SSL了.</p></blockquote><h3 id="开启SSL加密"><a href="#开启SSL加密" class="headerlink" title="开启SSL加密"></a>开启SSL加密</h3><blockquote><ol><li>创建SSL证书和密钥<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">openssl req -x509 -nodes -days 7300 -newkey rsa:2048 -keyout /etc/ssl/certs/vsftpd.pem -out /etc/ssl/certs/vsftpd.pem</span><br><span class="line">chmod 600 /etc/ssl/certs/vsftpd.pem </span><br></pre></td></tr></table></figure></li><li>往/etc/vsftpd.conf里面添加:<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">ssl_enable=YES124 </span><br><span class="line">force_local_logins_ssl=YES125 </span><br><span class="line">force_local_data_ssl=YES126 </span><br><span class="line">ssl_tlsv1=YES127</span><br><span class="line">ssl_sslv2=YES128 </span><br><span class="line">ssl_sslv3=YES129 </span><br><span class="line">rsa_cert_file=/etc/ssl/certs/vsftpd.pem130 </span><br><span class="line">rsa_private_key_file=/etc/ssl/certs/vsftpd.pem </span><br></pre></td></tr></table></figure>然后重启vsftpd服务.</li></ol></blockquote><h3 id="防火墙问题"><a href="#防火墙问题" class="headerlink" title="防火墙问题"></a>防火墙问题</h3><blockquote><ol><li>服务器端<blockquote><p>由于树莓派在路由器后面,所以只要做下虚拟主机,把树莓派的21控制端口映射到路由器的其他端口比如3333,20端口可以不做(一般都用被动连接方式)</p></blockquote></li></ol></blockquote><blockquote><ol start="2"><li>客户端<blockquote><p>vps客户端比较麻烦,因为在发起ftp被动方式连接的时候,控制端口的数据包已经标识了ESTABLISHED不会被挡住,但是服务器端产生的随机数据端口就会被防火墙丢弃.解决方法是采用iptables的recent模块,标记控制端口的ip,只要满足一定时间内改连接有效去判断是否让该ip的数据包通过.<strong>一定要放在ESTABLISHED,RELATED之前</strong>,否则无效!</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">iptables -A INPUT -p tcp -m tcp --sport 3333 -m conntrack --ctstate ESTABLISHED -m recent --<span class="built_in">set</span> --name FTP --rsource</span><br><span class="line">iptables -A INPUT -p tcp -m tcp --sport 3333 -m conntrack --ctstate ESTABLISHED -j ACCEPT</span><br><span class="line">iptables -A INPUT -m conntrack --ctstate NEW -m recent --update --seconds 30 --name FTP --rsource -j ACCEPT</span><br><span class="line">iptables -A INPUT -m conntrack --ctstate RELATED,ESTABLISHED -j ACCEPT </span><br></pre></td></tr></table></figure></blockquote></li></ol></blockquote><h3 id="在vps上写个简单的备份脚本"><a href="#在vps上写个简单的备份脚本" class="headerlink" title="在vps上写个简单的备份脚本"></a>在vps上写个简单的备份脚本</h3><blockquote><p>把脚本加入crontab.考虑到可能因网络导致备份失败,所以备份文件名采用1天的形式,然后缩短上传间隔,保证1天内有一个备份.</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line">backup=`date +%y-%m-%d`.tar.gz</span><br><span class="line">rmback=`date -d -7day +%y-%m-%d`.tar.gz</span><br><span class="line">ftp_server= <span class="string">""</span><span class="comment">#服务器域名</span></span><br><span class="line">port=<span class="string">""</span> <span class="comment">#服务器控制端口</span></span><br><span class="line">user=<span class="string">""</span> <span class="comment">#用户名</span></span><br><span class="line">password=<span class="string">""</span> <span class="comment">#密码</span></span><br><span class="line">backpath=<span class="string">""</span> <span class="comment">#要备份的目录</span></span><br><span class="line">backfile=<span class="string">""</span> <span class="comment">#要备份的文件</span></span><br><span class="line"><span class="built_in">cd</span> <span class="variable">$backpath</span></span><br><span class="line">tar -czf /root/<span class="variable">$backup</span> <span class="variable">$backfile</span></span><br><span class="line"><span class="keyword">function</span> backup &#123;</span><br><span class="line"> <span class="built_in">cd</span> /root</span><br><span class="line"> ftp-ssl -n <span class="variable">$ftp_server</span> <span class="variable">$port</span>  &lt;&lt;-EOF</span><br><span class="line"> user <span class="variable">$user</span> <span class="variable">$password</span></span><br><span class="line"> binary</span><br><span class="line"> <span class="built_in">cd</span> haily</span><br><span class="line"> put <span class="variable">$backup</span></span><br><span class="line"> rm <span class="variable">$rmback</span></span><br><span class="line"> close</span><br><span class="line">OF</span><br><span class="line">&#125;</span><br><span class="line">backup</span><br><span class="line">rm -rf /root/<span class="variable">$backup</span> </span><br></pre></td></tr></table></figure></blockquote><p>参考资料: <a href="https://wiki.archlinux.org/index.php/Very_Secure_FTP_Daemon" target="_blank" rel="noopener">Very Secure FTP Daemon</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 笔记 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> linux </tag>
+            
+            <tag> vps </tag>
+            
+            <tag> ftp </tag>
+            
+            <tag> 备份 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Hello World</title>
+      <link href="/2017/01/03/Hello-World/"/>
+      <url>/2017/01/03/Hello-World/</url>
+      
+        <content type="html"><![CDATA[<p>  第一篇文章，没啥想说的。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 感悟 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> hexo </tag>
+            
+            <tag> 感悟 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+  
+  
+</search>
