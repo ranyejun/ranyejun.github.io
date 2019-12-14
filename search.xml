@@ -4,11 +4,11 @@
   
     
     <entry>
-      <title>LEDE编译记录</title>
-      <link href="/2019/12/14/LEDE%E7%BC%96%E8%AF%91%E8%AE%B0%E5%BD%95/"/>
-      <url>/2019/12/14/LEDE%E7%BC%96%E8%AF%91%E8%AE%B0%E5%BD%95/</url>
+      <title>newifi3 d2刷入编译的LEDE实现中继</title>
+      <link href="/2019/12/14/%E5%88%9D%E7%8E%A9LEDE%E7%9A%84%E4%B8%80%E4%BA%9B%E4%B8%9C%E8%A5%BF/"/>
+      <url>/2019/12/14/%E5%88%9D%E7%8E%A9LEDE%E7%9A%84%E4%B8%80%E4%BA%9B%E4%B8%9C%E8%A5%BF/</url>
       
-        <content type="html"><![CDATA[<h1 id="仓库地址"><a href="#仓库地址" class="headerlink" title="仓库地址"></a>仓库地址</h1><p><a href="https://git.openwrt.org/openwrt/openwrt.git" target="_blank" rel="noopener">https://git.openwrt.org/openwrt/openwrt.git</a></p><h1 id="执行脚本"><a href="#执行脚本" class="headerlink" title="执行脚本"></a>执行脚本</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">script/feeds update -a  <span class="comment">#更新附加资源</span></span><br><span class="line">script/feeds install -a <span class="comment">#安装附加资源</span></span><br><span class="line">make menuconfig <span class="comment">#选择安装模块</span></span><br><span class="line">make download <span class="comment">#下载模块</span></span><br><span class="line">make <span class="comment">#编译</span></span><br></pre></td></tr></table></figure><h1 id="官网有说明如何编译，这边只是笔记。"><a href="#官网有说明如何编译，这边只是笔记。" class="headerlink" title="官网有说明如何编译，这边只是笔记。"></a>官网有说明如何编译，这边只是笔记。</h1>]]></content>
+        <content type="html"><![CDATA[<h1 id="买了个newifi3，折腾一下"><a href="#买了个newifi3，折腾一下" class="headerlink" title="买了个newifi3，折腾一下"></a>买了个newifi3，折腾一下</h1><p>120买的，主要是性价比高。缺点是2.4G烂，然而一般都是用2.4G的，emmm。算了练练手吧，结果出现惊喜了，原来LEDE的稳定版本信号并不好，最新的18.06源码编译的却很不错，信号提升很大，关键是延迟好很多，中继后隔堵墙信号满格速率能稳定80M+，已经不错了。</p><h1 id="仓库地址"><a href="#仓库地址" class="headerlink" title="仓库地址"></a>仓库地址</h1><p>网不好，clone<a href="https://git.openwrt.org/openwrt/openwrt.git" target="_blank" rel="noopener">源码</a>1个小时，中途有断线，比较蛋疼。</p><h1 id="执行脚本"><a href="#执行脚本" class="headerlink" title="执行脚本"></a>执行脚本</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">script/feeds update -a  <span class="comment">#更新附加资源</span></span><br><span class="line">script/feeds install -a <span class="comment">#安装附加资源</span></span><br><span class="line">make menuconfig <span class="comment">#选择安装模块</span></span><br><span class="line">make download <span class="comment">#下载模块</span></span><br><span class="line">make -j8 V=s <span class="comment">#编译</span></span><br></pre></td></tr></table></figure><h1 id="中继配置"><a href="#中继配置" class="headerlink" title="中继配置"></a>中继配置</h1><ol><li>.config添加luci-proto-relay模块</li><li>创建1个wifi客户端接口client，创建一个AP接口ap(需要固定ip，不然重启后会失效)，创建一个中继接口(绑定client和ap)，3个接口公用一个防火墙组relay，relay中允许forward链就好。</li></ol><h1 id="注意点"><a href="#注意点" class="headerlink" title="注意点"></a>注意点</h1><p>关闭ipv6可以防止获取未获取ipv4地址导致无法上网，传说中的断流情况。</p><h1 id="发现的问题"><a href="#发现的问题" class="headerlink" title="发现的问题"></a>发现的问题</h1><p>无法在中继客户端中访问路由器80端口，可能和防火墙有关。</p><h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://openwrt.org/docs/guide-user/network/wifi/relay_configuration" target="_blank" rel="noopener">LEDE官网中继说明</a></p>]]></content>
       
       
       <categories>
@@ -186,9 +186,9 @@
             
             <tag> debian </tag>
             
-            <tag> pxe </tag>
-            
             <tag> linux </tag>
+            
+            <tag> pxe </tag>
             
             <tag> dnsmasq </tag>
             
